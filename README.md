@@ -29,6 +29,19 @@ To see all available targets to run for a project, run:
 ```sh
 npx nx show project student-portal
 ```
+<hr/>
+
+To run hono api server for your app, use:
+
+```sh
+yarn nx serve hono-api
+```
+
+if you want run all application, use:
+
+```sh
+yarn dev
+```
 
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
 
