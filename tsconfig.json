@@ -4,7 +4,7 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/laboratorium-01"
+      "path": "./apps/student-portal"
     },
     {
       "path": "./hono-api"
