@@ -1,0 +1,66 @@
+{
+  "name": "@laboratorium-01/hono-api",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/esbuild:esbuild",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "defaultConfiguration": "production",
+        "options": {
+          "platform": "node",
+          "outputPath": "hono-api/dist",
+          "format": [
+            "cjs"
+          ],
+          "bundle": false,
+          "main": "hono-api/src/main.ts",
+          "tsConfig": "hono-api/tsconfig.app.json",
+          "assets": [
+            "hono-api/src/assets"
+          ],
+          "esbuildOptions": {
+            "sourcemap": true,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        },
+        "configurations": {
+          "development": {},
+          "production": {
+            "esbuildOptions": {
+              "sourcemap": false,
+              "outExtension": {
+                ".js": ".js"
+              }
+            }
+          }
+        }
+      },
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@laboratorium-01/hono-api:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@laboratorium-01/hono-api:build:development"
+          },
+          "production": {
+            "buildTarget": "@laboratorium-01/hono-api:build:production"
+          }
+        }
+      }
+    }
+  }
+}

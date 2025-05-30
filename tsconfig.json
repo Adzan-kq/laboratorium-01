@@ -5,6 +5,9 @@
   "references": [
     {
       "path": "./apps/laboratorium-01"
+    },
+    {
+      "path": "./hono-api"
     }
   ]
 }
