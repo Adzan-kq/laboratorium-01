@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.14.3",
+    "drizzle-orm": "^0.44.0",
     "hono": "^4.7.10",
     "next": "~15.2.4",
+    "pg": "^8.16.0",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },
@@ -32,9 +34,11 @@
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
     "@types/node": "~18.16.9",
+    "@types/pg": "^8",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
     "autoprefixer": "10.4.13",
+    "drizzle-kit": "^0.31.1",
     "esbuild": "^0.19.2",
     "eslint": "^9.8.0",
     "eslint-config-next": "^15.2.4",
