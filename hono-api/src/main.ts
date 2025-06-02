@@ -1,18 +1,20 @@
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
 
-import { db } from './db';
-import { students } from './db/schema-table';
+import { HonoRoute } from './types';
+import studentRoute from './routes/student.route';
 
 const app = new Hono();
 
-app.get('/', (c) => {
-  return c.text('Hello from Hono in Nx!');
-});
+const routes: HonoRoute[] = [...studentRoute];
 
-app.get('/students', async (c) => {
-  const result = await db.select().from(students);
-  return c.json(result);
+routes.map((route) => {
+  if (route.middlewares) {
+    app.on(route.method, route.path, ...route.middlewares);
+  }
+  if (route.handlers) {
+    app.on(route.method, route.path, ...route.handlers);
+  }
 });
 
 serve({
