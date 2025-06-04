@@ -3,10 +3,11 @@ import { Hono } from 'hono';
 
 import { HonoRoute } from './types';
 import studentRoute from './routes/student.route';
+import userRoute from './routes/user.route';
 
 const app = new Hono();
 
-const routes: HonoRoute[] = [...studentRoute];
+const routes: HonoRoute[] = [...studentRoute, ...userRoute];
 
 routes.map((route) => {
   if (route.middlewares) {
